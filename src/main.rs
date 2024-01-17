@@ -9,7 +9,7 @@ mod scoreboard;
 const WINDOW_WIDTH: f32 = 800.0;
 const WINDOW_HEIGHT: f32 = 600.0;
 
-const BALL_COLOR: Color = Color::ORANGE_RED;
+const BALL_COLOR: Color = Color::WHITE;
 const BALL_SIZE: f32 = 10.0;
 const BALL_SPEED: f32 = 700.0;
 const BALL_START_POSITION: Vec3 = Vec3::new(0.0, 0.0, 0.0);
