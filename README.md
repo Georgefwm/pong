@@ -1,20 +1,18 @@
 # Pong
-A simple pong implementation using Bevy written in Rust.
+A simple pong implementation using Bevy. Written in Rust.
 
 
 ## To run
 #### Pre-requisites
-The only pre-requisite is having installed Rust + cargo
+The only pre-requisite is having installed Rust + cargo, both can be installed at: [rustup.rs](https://rustup.rs/)
 
-#### Clone repo
+#### Build from source
 ```shell
 git clone https://github.com/Georgefwm/pong
 ```
-#### cd into dir
 ```shell
 cd pong
 ```
-#### build and run
 ```shell
 cargo run
 ```
