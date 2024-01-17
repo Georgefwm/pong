@@ -22,6 +22,7 @@ pub fn get_input(
     let ball_transform = ball_query.single();
 
     // Good enough for now
+    // TODO: Make slightly more sofisticated
     controller.wish_direction =
-        (ball_transform.translation.y - transform.translation.y) / crate::WINDOW_HEIGHT;
+        (ball_transform.translation.y - transform.translation.y) / (crate::WINDOW_HEIGHT / 5.0);
 }
