@@ -10,8 +10,8 @@ const WINDOW_WIDTH: f32 = 800.0;
 const WINDOW_HEIGHT: f32 = 600.0;
 
 const BALL_COLOR: Color = Color::WHITE;
-const BALL_SIZE: f32 = 10.0;
-const BALL_SPEED: f32 = 700.0;
+const BALL_SIZE: f32 = 15.0;
+const BALL_SPEED: f32 = 500.0;
 const BALL_START_POSITION: Vec3 = Vec3::new(0.0, 0.0, 0.0);
 const BALL_INITIAL_VELOCITY: Vec2 = Vec2::new(1.0, 1.0);
 
@@ -36,6 +36,7 @@ fn main() {
                 position: WindowPosition::Centered(MonitorSelection::Primary),
                 resolution: WindowResolution::new(WINDOW_WIDTH, WINDOW_HEIGHT),
                 resizable: false,
+                title: "pong - by George Mclachlan".to_string(),
                 ..default()
             }),
             ..default()
