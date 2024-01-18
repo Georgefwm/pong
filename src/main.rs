@@ -14,6 +14,7 @@ const BALL_SIZE: f32 = 15.0;
 const BALL_SPEED: f32 = 500.0;
 const BALL_START_POSITION: Vec3 = Vec3::new(0.0, 0.0, 0.0);
 const BALL_INITIAL_VELOCITY: Vec2 = Vec2::new(1.0, 1.0);
+const BALL_MAX_BOUNCE_ANGLE_DEGREES: f32 = 60.0;
 
 const PADDLE_COLOR: Color = Color::WHITE;
 const PADDLE_SCALE: Vec3 = Vec3::new(20.0, 150.0, 1.0);
