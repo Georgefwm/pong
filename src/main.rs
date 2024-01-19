@@ -1,9 +1,13 @@
-use bevy::{prelude::*, sprite::MaterialMesh2dBundle, window::WindowResolution};
+use bevy::{
+    core_pipeline::clear_color::ClearColorConfig, prelude::*, sprite::MaterialMesh2dBundle,
+    window::WindowResolution,
+};
 
 mod ball;
 mod collision;
 mod computer_controller;
 mod player_controller;
+mod post_processing;
 mod scoreboard;
 
 const WINDOW_WIDTH: f32 = 800.0;
@@ -48,6 +52,7 @@ fn main() {
             computer: 0,
         })
         .add_systems(Startup, setup)
+        .add_plugins(post_processing::PostProcessingPlugin)
         .add_event::<scoreboard::ScoreEvent>()
         .add_systems(
             FixedUpdate,
@@ -76,7 +81,20 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
 ) {
-    commands.spawn(Camera2dBundle::default());
+    // Spawn 2d camera
+    commands.spawn((
+        Camera2dBundle {
+            camera_2d: Camera2d {
+                clear_color: ClearColorConfig::Default,
+                ..default()
+            },
+            ..default()
+        },
+        post_processing::PostProcessingSettings {
+            intensity: 0.3,
+            color_aberration: Mat3::IDENTITY,
+        },
+    ));
 
     // Top wall
     commands.spawn((
@@ -112,6 +130,7 @@ fn setup(
         collision::Collider,
     ));
 
+    // Spawn ball
     commands.spawn((
         MaterialMesh2dBundle {
             mesh: meshes.add(shape::Circle::new(BALL_SIZE).into()).into(),
@@ -168,6 +187,7 @@ fn setup(
         computer_controller::ComputerController::default(),
     ));
 
+    // Spawn the scoreboard
     commands.spawn(
         TextBundle::from_sections([
             TextSection::new(
@@ -235,6 +255,7 @@ fn move_paddles(
     computer_transform.translation.y = new_computer_paddle_position.clamp(lower_bound, upper_bound);
 }
 
+// Checks if ball has passed a players paddle, if so, awards a point
 // TODO: Are the paddles positions supposed to be reset on score?
 fn check_scored(
     mut scoreboard: ResMut<scoreboard::Scoreboard>,
