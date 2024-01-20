@@ -37,8 +37,7 @@ impl Plugin for PostProcessingPlugin {
         load_internal_asset!(
             app,
             POST_PROCESS_SHADER_HANDLE,
-            // TODO: Fix other shaders
-            "../assets/screen_glitch_effect.wgsl",
+            "../assets/crt_post_process_effect.wgsl",
             Shader::from_wgsl
         );
         app.add_plugins((
