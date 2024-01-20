@@ -24,6 +24,7 @@ pub fn get_input(
     // Good enough for now
     // TODO: Make slightly more sofisticated
     controller.wish_direction = (ball_transform.translation.y
-        - (transform.translation.y - ball_velocity.direction.normalize().y * 100.0))
-        / (crate::WINDOW_HEIGHT / 4.0);
+        - (transform.translation.y
+            - ball_velocity.direction.normalize().y * crate::COMPUTER_LEAD_AMOUNT))
+        / (crate::WINDOW_HEIGHT / 3.0);
 }

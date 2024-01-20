@@ -15,7 +15,7 @@ const WINDOW_HEIGHT: f32 = 600.0;
 
 const BALL_COLOR: Color = Color::WHITE;
 const BALL_SIZE: f32 = 15.0;
-const BALL_SPEED: f32 = 500.0;
+const BALL_SPEED: f32 = 600.0;
 const BALL_START_POSITION: Vec3 = Vec3::new(0.0, 0.0, 0.0);
 const BALL_INITIAL_VELOCITY: Vec2 = Vec2::new(1.0, 1.0);
 const BALL_MAX_BOUNCE_ANGLE_DEGREES: f32 = 60.0;
@@ -32,6 +32,7 @@ const SCOREBOARD_FONT_SIZE: f32 = 64.0;
 const SCOREBOARD_TEXT_TOP_PADDING: Val = Val::Px(40.0);
 const SCOREBOARD_TEXT_COLOR: Color = Color::WHITE;
 
+const COMPUTER_LEAD_AMOUNT: f32 = 10.0;
 const BACKGROUND_COLOR: Color = Color::DARK_GRAY;
 
 fn main() {
