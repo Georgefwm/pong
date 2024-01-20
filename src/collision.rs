@@ -70,8 +70,12 @@ pub fn check_colliders(
                     ball_velocity.direction.x *= -1.0;
                 }
 
+                let normalied_direction: Vec2 = ball_velocity.direction;
+
                 // Add ball speed to normalied direction vector
-                ball_velocity.direction *= crate::BALL_SPEED;
+                ball_velocity.direction.x *= crate::BALL_SPEED;
+                ball_velocity.direction.y *= crate::BALL_SPEED
+                    * (f32::abs(normalied_direction.x) / f32::abs(normalied_direction.y));
             }
 
             // reflect velocity on the y-axis if we hit something on the y-axis
