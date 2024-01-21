@@ -74,7 +74,7 @@ impl Plugin for PostProcessingPlugin {
             // The [`ViewNodeRunner`] is a special [`Node`] that will automatically run the node for each view
             // matching the [`ViewQuery`]
             .add_render_graph_node::<ViewNodeRunner<PostProcessingNode>>(
-                // Specify the name of the graph, in this case we want the graph for 3d
+                // Specify the name of the graph, in this case we want the graph for 2d
                 core_2d::graph::NAME,
                 // It also needs the name of the node
                 PostProcessingNode::NAME,
@@ -85,8 +85,9 @@ impl Plugin for PostProcessingPlugin {
                 // This will automatically create all required node edges to enforce the given ordering.
                 &[
                     core_2d::graph::node::TONEMAPPING,
-                    PostProcessingNode::NAME,
                     core_2d::graph::node::END_MAIN_PASS_POST_PROCESSING,
+                    // Post process needs to happen after main pass to effect UI elements
+                    PostProcessingNode::NAME,
                 ],
             );
     }
