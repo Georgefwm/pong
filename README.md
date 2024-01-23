@@ -24,5 +24,5 @@ git clone https://github.com/Georgefwm/pong
 cd pong
 ```
 ```shell
-cargo run
+cargo run --release
 ```
