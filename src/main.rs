@@ -18,7 +18,7 @@ const BALL_SIZE: f32 = 15.0;
 const BALL_SPEED: f32 = 600.0;
 const BALL_START_POSITION: Vec3 = Vec3::new(0.0, 0.0, 0.0);
 const BALL_INITIAL_VELOCITY: Vec2 = Vec2::new(1.0, 1.0);
-const BALL_MAX_BOUNCE_ANGLE_DEGREES: f32 = 60.0;
+const BALL_MAX_BOUNCE_ANGLE_DEGREES: f32 = 60.0; // Assumes value between [0, 90]
 
 const PADDLE_COLOR: Color = Color::WHITE;
 const PADDLE_SCALE: Vec3 = Vec3::new(20.0, 150.0, 1.0);
@@ -276,5 +276,9 @@ fn check_scored(
 
         ball_transform.translation = BALL_START_POSITION;
         ball_velocity.direction = BALL_INITIAL_VELOCITY.normalize() * BALL_SPEED;
+
+        if scoreboard.human + scoreboard.computer % 2 == 1 {
+            ball_velocity.direction.y *= -1.0;
+        }
     }
 }
