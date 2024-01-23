@@ -11,10 +11,12 @@ Simply download and run the latest executable from the [releases](https://github
 #### Mac and Linux
 Build from scratch using instructions below
 
+
+## Build from source
+
 #### Prerequisites
 The only prerequisite is having installed Rust + cargo, both can be installed at: [rustup.rs](https://rustup.rs/)
 
-#### Build from source
 ```shell
 git clone https://github.com/Georgefwm/pong
 ```
