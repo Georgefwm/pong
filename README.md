@@ -9,7 +9,7 @@ A simple pong implementation using Bevy. Written in Rust.
 Simply download and run the latest executable from the [releases](https://github.com/Georgefwm/pong/releases) page
 
 #### Mac and Linux
-Build from scratch using instructions below
+Build from source using instructions below
 
 
 ## Build from source
