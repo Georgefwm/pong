@@ -84,10 +84,13 @@ impl Plugin for PostProcessingPlugin {
                 // Specify the node ordering.
                 // This will automatically create all required node edges to enforce the given ordering.
                 &[
+                    core_2d::graph::node::MAIN_PASS,
                     core_2d::graph::node::TONEMAPPING,
                     core_2d::graph::node::END_MAIN_PASS_POST_PROCESSING,
-                    // Post process needs to happen after main pass to effect UI elements
+                    // Post process needs to happen after END_MAIN_PASS... to effect UI elements
+                    // also needs to be before UPSCALING to work consistantly
                     PostProcessingNode::NAME,
+                    core_2d::graph::node::UPSCALING,
                 ],
             );
     }
