@@ -22,7 +22,6 @@ pub fn get_input(
     let (ball_transform, ball_velocity) = ball_query.single();
 
     // Good enough for now
-    // TODO: Make slightly more sofisticated
     controller.wish_direction = (ball_transform.translation.y
         - (transform.translation.y
             - ball_velocity.direction.normalize().y * crate::COMPUTER_LEAD_AMOUNT))
