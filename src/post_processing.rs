@@ -24,6 +24,7 @@ use bevy::{
         view::ViewTarget,
         RenderApp,
     },
+    ui::draw_ui_graph,
 };
 
 // $ cargo install uuid-tools && uuid -o simple
@@ -87,8 +88,9 @@ impl Plugin for PostProcessingPlugin {
                     core_2d::graph::node::MAIN_PASS,
                     core_2d::graph::node::TONEMAPPING,
                     core_2d::graph::node::END_MAIN_PASS_POST_PROCESSING,
-                    // Post process needs to happen after END_MAIN_PASS... to effect UI elements
-                    // also needs to be before UPSCALING to work consistantly
+                    draw_ui_graph::node::UI_PASS,
+                    // Post process needs to happen after UI_PASS to effect UI elements
+                    // also needs to be before UPSCALING to work
                     PostProcessingNode::NAME,
                     core_2d::graph::node::UPSCALING,
                 ],
