@@ -1,6 +1,7 @@
 # Pong
 A simple pong implementation using Bevy. Written in Rust.
 
+![Screenshot](Screenshot.png?raw=true)
 
 ## To run
 #### Prerequisites
